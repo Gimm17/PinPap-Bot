@@ -1,0 +1,45 @@
+# =====================
+# PAP Bot - Docker Compose
+# =====================
+
+version: '3.8'
+
+services:
+  papbot:
+    build: .
+    container_name: papbot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - STORAGE=sqlite
+      - DATABASE_PATH=/app/data/papbot.db
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: MongoDB service (uncomment if using MongoDB)
+  # mongodb:
+  #   image: mongo:7
+  #   container_name: papbot-mongo
+  #   restart: unless-stopped
+  #   volumes:
+  #     - mongodb_data:/data/db
+  #   ports:
+  #     - "27017:27017"
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=papbot
+  #     - MONGO_INITDB_ROOT_PASSWORD=secret
+
+# Optional: MongoDB volume
+# volumes:
+#   mongodb_data:
