@@ -7,9 +7,6 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
-# Install dependencies for better-sqlite3
-RUN apk add --no-cache python3 make g++ sqlite sqlite-dev
-
 # Copy package files
 COPY package*.json ./
 
@@ -24,7 +21,7 @@ RUN mkdir -p data logs
 
 # Set environment
 ENV NODE_ENV=production
-ENV STORAGE=sqlite
+ENV STORAGE=memory
 
 # Expose port
 EXPOSE 3000
