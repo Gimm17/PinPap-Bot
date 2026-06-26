@@ -100,11 +100,11 @@ temp/
 *.backup
 
 # =====================
-# Uploads & Storage
+# Uploads & Storage (root directories only)
 # =====================
-uploads/
-storage/
-pap-uploads/
+/uploads/
+/storage/
+/pap-uploads/
 
 # =====================
 # Backup & Archives
