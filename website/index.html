@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PAP Bot - Discord Photo Sharing Bot dengan 4 mode unik: ROUND, SWAP, CHAIN, QUOTA. Share foto secara privat dengan teman!">
+    <meta name="keywords" content="discord bot, photo sharing, pap bot, discord, foto, private sharing">
+    <meta name="author" content="PAP Bot">
+    <meta property="og:title" content="PAP Bot - Discord Photo Sharing Bot">
+    <meta property="og:description" content="Discord Photo Sharing Bot dengan 4 mode unik: ROUND, SWAP, CHAIN, QUOTA">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/papbot-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>PAP Bot - Discord Photo Sharing Bot</title>
+    <link rel="icon" type="image/png" href="/papbot-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">📸</span>
+                <span class="logo-text">PAP Bot</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#modes" class="nav-link">Modes</a>
+                <a href="#commands" class="nav-link">Commands</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="https://discord.com/api/oauth2/authorize?client_id=1422445470676029543&permissions=8&scope=bot%20applications.commands" class="nav-btn" target="_blank">
+                    Add to Discord
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-gradient">Share Photos</span>
+                    <br>Privately on Discord
+                </h1>
+                <p class="hero-subtitle">
+                    PAP Bot adalah bot Discord untuk berbagi foto secara privat dengan teman-teman server.
+                    Dengan 4 mode unik, pengalaman sharing foto jadi lebih seru!
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://discord.com/api/oauth2/authorize?client_id=1422445470676029543&permissions=8&scope=bot%20applications.commands" class="btn btn-primary" target="_blank">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.094-.862-9.527-3.671-13.66a.061.061 0 0 0-.031-.03z"/>
+                        </svg>
+                        Add to Discord
+                    </a>
+                    <a href="#commands" class="btn btn-secondary">
+                        View Commands
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Game Modes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Private</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Free</span>
+                        <span class="stat-label">Forever</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <div class="card-header">
+                        <span class="card-icon">📸</span>
+                        <span class="card-title">PAP Bot</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="mode-badge round">ROUND</div>
+                        <div class="mode-badge swap">SWAP</div>
+                        <div class="mode-badge chain">CHAIN</div>
+                        <div class="mode-badge quota">QUOTA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Apa itu PAP Bot?</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🔒</div>
+                    <h3>Privat & Aman</h3>
+                    <p>Foto yang kamu kirim hanya bisa dilihat oleh peserta. Semua preview dikirim secara ephemeral (hanya kamu yang bisa melihat).</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🎮</div>
+                    <h3>4 Mode Unik</h3>
+                    <p>Pilih mode yang sesuai dengan kebutuhan: ROUND untuk galeri, SWAP untuk pasangan acak, CHAIN untuk berantai, atau QUOTA untuk target tertentu.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">⚡</div>
+                    <h3>Slash Commands</h3>
+                    <p>Gunakan slash commands (/) yang mudah digunakan dengan autocomplete. Tidak perlu menghafal perintah rumit!</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🏠</div>
+                    <h3>Room System</h3>
+                    <p>Buat room dengan kapasitas yang bisa diatur. Owner mengontrol room dengan panel yang mudah dipahami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modes Section -->
+    <section id="modes" class="modes">
+        <div class="container">
+            <h2 class="section-title">4 Game Modes</h2>
+            <p class="section-subtitle">Pilih mode yang sesuai dengan kebutuhan server kamu</p>
+
+            <div class="modes-grid">
+                <!-- ROUND Mode -->
+                <div class="mode-card">
+                    <div class="mode-header round">
+                        <span class="mode-emoji">🔄</span>
+                        <h3>ROUND</h3>
+                    </div>
+                    <div class="mode-body">
+                        <p class="mode-desc">Yang submit bisa melihat galeri peserta lain dengan pagination.</p>
+                        <div class="mode-flow">
+                            <div class="flow-step">
+                                <span class="step-num">1</span>
+                                <span class="step-text">Owner start round</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">2</span>
+                                <span class="step-text">Semua submit foto</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">3</span>
+                                <span class="step-text">Lihat galeri (4 foto/halaman)</span>
+                            </div>
+                        </div>
+                        <ul class="mode-features">
+                            <li>✅ Galeri lengkap semua peserta</li>
+                            <li>✅ Pagination 4 foto/halaman</li>
+                            <li>✅ Ephemeral preview</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SWAP Mode -->
+                <div class="mode-card">
+                    <div class="mode-header swap">
+                        <span class="mode-emoji">🔀</span>
+                        <h3>SWAP</h3>
+                    </div>
+                    <div class="mode-body">
+                        <p class="mode-desc">Peserta dipasangkan acak, lihat foto pasangan kamu.</p>
+                        <div class="mode-flow">
+                            <div class="flow-step">
+                                <span class="step-num">1</span>
+                                <span class="step-text">Owner start round</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">2</span>
+                                <span class="step-text">Submit foto</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">3</span>
+                                <span class="step-text">Sistem acak pasangan</span>
+                            </div>
+                        </div>
+                        <ul class="mode-features">
+                            <li>✅ Pasangan acak otomatis</li>
+                            <li>✅ Hanya lihat foto pasangan</li>
+                            <li>✅ Seru untuk pasangan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CHAIN Mode -->
+                <div class="mode-card">
+                    <div class="mode-header chain">
+                        <span class="mode-emoji">⛓️</span>
+                        <h3>CHAIN</h3>
+                    </div>
+                    <div class="mode-body">
+                        <p class="mode-desc">Lihat foto orang tepat sebelum kamu dalam antrian.</p>
+                        <div class="mode-flow">
+                            <div class="flow-step">
+                                <span class="step-num">1</span>
+                                <span class="step-text">Owner start round</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">2</span>
+                                <span class="step-text">Submit foto berurutan</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">3</span>
+                                <span class="step-text">Lihat foto sebelumnya</span>
+                            </div>
+                        </div>
+                        <ul class="mode-features">
+                            <li>✅ Antrian berantai</li>
+                            <li>✅ Lihat 1 foto sebelumnya</li>
+                            <li>✅ Orang pertama lihat kosong</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- QUOTA Mode -->
+                <div class="mode-card">
+                    <div class="mode-header quota">
+                        <span class="mode-emoji">📊</span>
+                        <h3>QUOTA</h3>
+                    </div>
+                    <div class="mode-body">
+                        <p class="mode-desc">Galeri terbuka setelah kuota minimal tercapai.</p>
+                        <div class="mode-flow">
+                            <div class="flow-step">
+                                <span class="step-num">1</span>
+                                <span class="step-text">Set kuota (misal: 5)</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">2</span>
+                                <span class="step-text">Semua submit foto</span>
+                            </div>
+                            <div class="flow-step">
+                                <span class="step-num">3</span>
+                                <span class="step-text">Kuota tercapai = buka galeri</span>
+                            </div>
+                        </div>
+                        <ul class="mode-features">
+                            <li>✅ Target peserta tertentu</li>
+                            <li>✅ Galeri buka setelah tercapai</li>
+                            <li>✅ Cocok untuk event</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="commands">
+        <div class="container">
+            <h2 class="section-title">Commands</h2>
+            <p class="section-subtitle">Daftar lengkap perintah yang tersedia</p>
+
+            <div class="commands-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Description</th>
+                            <th>Permission</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/pap-help</code></td>
+                            <td>Tampilkan panduan lengkap</td>
+                            <td>Everyone</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-bootstrap</code></td>
+                            <td>Setup kategori & channel default</td>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-room create [capacity]</code></td>
+                            <td>Buat room baru dengan kapasitas</td>
+                            <td>Everyone</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-room close</code></td>
+                            <td>Tutup & hapus room</td>
+                            <td>Owner/Admin</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-join</code></td>
+                            <td>Gabung ke room</td>
+                            <td>Everyone</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-leave</code></td>
+                            <td>Keluar dari room</td>
+                            <td>Everyone</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-setup mode [mode]</code></td>
+                            <td>Set mode (ROUND/SWAP/CHAIN/QUOTA)</td>
+                            <td>Owner/Admin</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-start</code></td>
+                            <td>Mulai round</td>
+                            <td>Owner/Admin</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-submit photo:</code></td>
+                            <td>Kirim foto</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-view [page]</code></td>
+                            <td>Lihat foto sesuai mode</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-close</code></td>
+                            <td>Tutup round</td>
+                            <td>Owner/Admin</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-mode</code></td>
+                            <td>Lihat status mode</td>
+                            <td>Everyone</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pap-stats</code></td>
+                            <td>Lihat statistik</td>
+                            <td>Everyone</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="howto" class="howto">
+        <div class="container">
+            <h2 class="section-title">Cara Menggunakan</h2>
+            <div class="howto-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Invite Bot</h3>
+                    <p>Klik tombol "Add to Discord" di atas untuk menginvite bot ke server kamu.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Setup Channel</h3>
+                    <p>Jalankan <code>/pap-bootstrap</code> untuk membuat kategori dan channel secara otomatis.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Create Room</h3>
+                    <p>Di channel #create-room, klik tombol "Buat Room" atau jalankan <code>/pap-room create</code>.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Setup Mode</h3>
+                    <p>Di room yang baru dibuat, jalankan <code>/pap-setup mode:ROUND</code> (atau mode lainnya).</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Start Round</h3>
+                    <p>Jalankan <code>/pap-start</code> untuk memulai round foto sharing.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Share Foto</h3>
+                    <p>Peserta menjalankan <code>/pap-submit photo:</code> untuk mengirim foto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">FAQ</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Apakah foto saya aman?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya! Semua foto dikirim secara ephemeral, artinya hanya kamu yang bisa melihat preview. Foto tidak disimpan permanen dan hanya tersimpan sementara di memory server.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Siapa yang bisa melihat foto saya?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tergantung mode:
+                        <br>- <strong>ROUND:</strong> Semua peserta yang sudah submit
+                        <br>- <strong>SWAP:</strong> Hanya pasangan kamu
+                        <br>- <strong>CHAIN:</strong> Hanya 1 orang sebelum kamu
+                        <br>- <strong>QUOTA:</strong> Semua peserta setelah kuota tercapai</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Berapa kapasitas maksimal room?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Owner bisa mengatur kapasitas saat membuat room. 0 = tidak terbatas, atau tentukan angka sesuai kebutuhan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Bagaimana cara mengganti mode?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Jalankan <code>/pap-setup mode:SWAP</code> (atau mode lainnya). Hanya owner room atau admin yang bisa mengubah mode.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Apakah bot gratis?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya, 100% gratis! Tidak ada fitur premium atau subscription. Semua fitur bisa digunakan tanpa batas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Format foto apa saja yang didukung?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>PNG, JPG, JPEG, WEBP, dan GIF. Ukuran maksimal 8MB per foto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invite Section -->
+    <section id="invite" class="invite">
+        <div class="container">
+            <div class="invite-content">
+                <h2>Siap Mulai?</h2>
+                <p>Invite PAP Bot ke server Discord kamu dan mulai berbagi foto dengan teman-teman!</p>
+                <a href="https://discord.com/api/oauth2/authorize?client_id=1422445470676029543&permissions=8&scope=bot%20applications.commands" class="btn btn-primary btn-large" target="_blank">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.094-.862-9.527-3.671-13.66a.061.061 0 0 0-.031-.03z"/>
+                    </svg>
+                    Add to Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">📸</span>
+                    <span class="logo-text">PAP Bot</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#modes">Modes</a>
+                    <a href="#commands">Commands</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.com/api/oauth2/authorize?client_id=1422445470676029543&permissions=8&scope=bot%20applications.commands" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.094-.862-9.527-3.671-13.66a.061.061 0 0 0-.031-.03z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/Gimm17/PinPap-Bot" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PAP Bot. All rights reserved.</p>
+                <p>Made with ❤️ for Discord community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
