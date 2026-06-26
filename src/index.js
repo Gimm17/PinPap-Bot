@@ -357,9 +357,31 @@ async function registerGuildCommands(guildId) {
   console.log(`[slash] Guild commands registered for ${guildId}`);
 }
 
+/* ===================== Register commands globally ===================== */
+async function registerGlobalCommands() {
+  try {
+    const rest = new REST({ version: "10" }).setToken(process.env.BOT_TOKEN);
+    await rest.put(
+      Routes.applicationCommands(process.env.CLIENT_ID),
+      { body: commands }
+    );
+    log.info('slash', `✅ Successfully registered ${commands.length} global commands`);
+    return true;
+  } catch (error) {
+    log.error('slash', '❌ Failed to register commands:', error);
+    return false;
+  }
+}
+
 /* ===================== Ready & guild join ===================== */
 client.once("ready", async () => {
-  console.log(`Logged in as ${client.user.tag}`);
+  log.info('main', `Logged in as ${client.user.tag}`);
+
+  // Auto-deploy commands on startup
+  log.info('main', 'Deploying slash commands...');
+  await registerGlobalCommands();
+
+  // Setup categories and lobbies
   for (const [, g] of client.guilds.cache) {
     const cat = await ensureCategory(g).catch(() => null);
     if (cat) await ensureLobby(g, cat).catch(() => {});
