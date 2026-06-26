@@ -1,0 +1,44 @@
+{
+  "name": "papbot",
+  "version": "1.4.0",
+  "description": "Discord Photo Sharing Bot with 4 unique modes: ROUND, SWAP, CHAIN, QUOTA",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --env-file=.env src/index.js",
+    "deploy": "node src/commands/deploy-commands.js",
+    "test": "mocha tests/**/*.js --timeout 10000",
+    "test:watch": "mocha tests/**/*.js --timeout 10000 --watch",
+    "test:coverage": "c8 mocha tests/**/*.js --timeout 10000",
+    "lint": "eslint src/ --ext .js",
+    "lint:fix": "eslint src/ --ext .js --fix"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "photo",
+    "sharing",
+    "pap"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.637.0",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
+    "sql.js": "^1.10.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

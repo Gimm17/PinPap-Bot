@@ -6,7 +6,6 @@
 # Dependencies
 # =====================
 node_modules/
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
@@ -20,10 +19,9 @@ pnpm-lock.yaml
 .env.development
 *.env
 
-# Credentials
+# Credentials (keep package-lock.json and package.json!)
 *.pem
 *.key
-*.json
 credentials.json
 service-account.json
 secrets.json
